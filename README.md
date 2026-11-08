@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# 🎙️ Speech-to-Handwriting AI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered application that converts spoken audio into handwritten-style text and generates a PDF document using a custom handwriting font.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- 🎤 Audio input and recording
+- 🤖 Speech-to-text conversion using OpenAI Whisper
+- ✍️ Converts recognized text into handwritten-style output
+- 📄 Generates downloadable PDF documents
+- 🎨 Custom handwriting font support
+- 🖥️ React-based user interface
+- ⚙️ Python Flask backend
 
-### `npm start`
+## 🛠️ Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Technology | Purpose |
+|---|---|
+| React.js | Frontend development |
+| Python | Backend programming |
+| Flask | Backend API |
+| OpenAI Whisper | Speech recognition |
+| ReportLab | PDF generation |
+| Pillow | Image processing |
+| HTML & CSS | User interface styling |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```text
+Speech-To-Handwriting-AI/
+│
+├── backend/
+│   ├── app.py
+│   ├── speech_to_text.py
+│   ├── handwriting_generator.py
+│   ├── pdf_generator.py
+│   └── handwriting.ttf
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   └── pages/
+│   │       ├── Home.js
+│   │       └── Convert.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── .gitignore
+└── README.md
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Installation and Setup
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Python 3.x
+- Node.js and npm
+- FFmpeg
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/gayathri-nag/Speech-To-Handwriting-AI.git
+cd Speech-To-Handwriting-AI
+```
 
-### `npm run eject`
+### 2. Set up the backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd backend
+python -m venv venv
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Activate the virtual environment on Windows:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+venv\Scripts\activate
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install the required Python packages:
 
-## Learn More
+```bash
+pip install flask flask-cors openai-whisper reportlab pillow
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the Flask server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+python app.py
+```
 
-### Code Splitting
+### 3. Set up the frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open another terminal:
 
-### Analyzing the Bundle Size
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The React application will open at:
 
-### Making a Progressive Web App
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The Flask backend runs at:
 
-### Advanced Configuration
+http://127.0.0.1:5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Note:** Make sure FFmpeg is installed and available in your system PATH for audio processing. The first Whisper model execution may require an internet connection to download the model.
 
-### Deployment
+## 🔄 Application Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. User provides audio through recording or audio input.
+2. The backend processes the audio using Whisper.
+3. Recognized speech is converted into text.
+4. The text is rendered using a custom handwriting font.
+5. A PDF document is generated for the user.
 
-### `npm run build` fails to minify
+## 🚀 Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Support for multiple handwriting styles.
+- Multiple language support.
+- Improved PDF customization.
+- Cloud deployment.
+- Additional document formatting options.
+
+## 👩‍💻 Developer
+
+**Gayathri Peyyala**
+
+GitHub: [@gayathri-nag](https://github.com/gayathri-nag)
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
